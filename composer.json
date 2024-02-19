@@ -8,6 +8,7 @@
         "embeddings",
         "doctrine",
         "elasticsearch",
+        "qdrant",
         "redis",
         "openai",
         "ollama"
@@ -43,7 +44,8 @@
         "rector/rector": "^0.18.1"
     },
     "suggest": {
-        "modelflow-ai/elasticsearch-embeddings-store": "Embeddings store using Elasticsearch"
+        "modelflow-ai/elasticsearch-embeddings-store": "Embeddings store using Elasticsearch",
+        "modelflow-ai/qdrant-embeddings-store": "Embeddings store using Qdrant"
     },
     "conflict": {
         "phpstan/phpstan": "^1.10.55"
