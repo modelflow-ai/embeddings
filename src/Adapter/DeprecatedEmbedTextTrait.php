@@ -14,16 +14,15 @@ declare(strict_types=1);
 namespace ModelflowAi\Embeddings\Adapter;
 
 use ModelflowAi\Embeddings\Adapter\Request\EmbedRequest;
-use ModelflowAi\Embeddings\Adapter\Response\EmbedResponse;
 
-interface EmbeddingAdapterInterface
+trait DeprecatedEmbedTextTrait
 {
-    /**
-     * @return float[]
-     *
-     * @deprecated use EmbeddingAdapterInterface::embed instead
-     */
-    public function embedText(string $text): array;
+    public function embedText(string $text): array
+    {
+        trigger_deprecation('modelflow-ai/embeddings', '0.4.0', 'The "%s::embedText" method is deprecated, use "%s::embed" instead.', static::class, static::class);
 
-    public function embed(EmbedRequest $request): EmbedResponse;
+        $response = $this->embed(new EmbedRequest($text));
+
+        return $response->getVector();
+    }
 }
